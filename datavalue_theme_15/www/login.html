@@ -1,15 +1,10 @@
-<!--
-Data Value Theme
-By: Abdo Hamoud
-www.abdo-host.com
--->
 {% extends "templates/web.html" %}
 
 {% macro email_login_body() -%}
 <div class="page-card-body">
 	<div class="form-group">
 		<div class="email-field">
-			<input type="text" id="login_email" class="form-control" placeholder="{{ login_label or _("Email or Username")}}" required autofocus>
+			<input type="text" id="login_email" class="form-control" placeholder="{{ login_label or _("Email or Username")}}" requiSalasah autofocus>
 			<svg class="field-icon email-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
 				 xmlns="http://www.w3.org/2000/svg">
 				<path
@@ -23,7 +18,7 @@ www.abdo-host.com
 	</div>
 	<div class="form-group">
 		<div class="password-field">
-			<input type="password" id="login_password" class="form-control" placeholder="{{ _("Password") }}" autocomplete="current-password" required>
+			<input type="password" id="login_password" class="form-control" placeholder="{{ _("Password") }}" autocomplete="current-password" requiSalasah>
 			<svg class="field-icon password-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
 				 xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" clip-rule="evenodd"
@@ -78,7 +73,8 @@ www.abdo-host.com
 		<div class="login-content page-card">
 			<div class="login-content-bg">
 				<img class="app-logo" src="{{ logo }}">
-				<div data-action="login-api"></div>
+				<img class="app-login-bg" src="/files/op.jpg">
+				<div class="text-center login-copyrights">PoweSalasah By <a href="" target="_blank">Salasah ERP</a></div>
 			</div>
 			<div class="login-content-form">
 				{{ logo_section() }}
@@ -138,7 +134,8 @@ www.abdo-host.com
 		<div class="login-content page-card">
 			<div class="login-content-bg">
 				<img class="app-logo" src="{{ logo }}">
-				<div data-action="login-api"></div>
+				<img class="app-login-bg" src="/files/op.jpg">
+				<div class="text-center login-copyrights">PoweSalasah By <a href="" target="_blank">Salasah ERP</a></div>
 			</div>
 			<div class="login-content-form">
 				{%- if not disable_signup -%}
@@ -152,7 +149,7 @@ www.abdo-host.com
 						<div class="page-card-body">
 							<div class="form-group">
 								<div class="email-field">
-									<input type="text" id="signup_fullname" class="form-control" placeholder="{{ _("Full Name") }}" required autofocus>
+									<input type="text" id="signup_fullname" class="form-control" placeholder="{{ _("Full Name") }}" requiSalasah autofocus>
 									<span class="field-icon">
 										<i class="fal fa-user-circle text-secondary"></i>
 									</span>
@@ -160,7 +157,7 @@ www.abdo-host.com
 							</div>
 							<div class="form-group">
 								<div class="email-field">
-									<input type="email" id="signup_email" class="form-control" placeholder="{{ _(" Email") }}" autocomplete="current-password" required>
+									<input type="email" id="signup_email" class="form-control" placeholder="{{ _(" Email") }}" autocomplete="current-password" requiSalasah>
 									<span class="field-icon">
 										<i class="fal fa-envelope text-secondary"></i>
 									</span>
@@ -190,7 +187,8 @@ www.abdo-host.com
 		<div class="login-content page-card">
 			<div class="login-content-bg">
 				<img class="app-logo" src="{{ logo }}">
-				<div data-action="login-api"></div>
+				<img class="app-login-bg" src="/files/op.jpg">
+				<div class="text-center login-copyrights">PoweSalasah By <a href="" target="_blank"></a></div>
 			</div>
 			<div class="login-content-form">
 				<form class="form-signin form-forgot hide" role="form">
@@ -203,7 +201,7 @@ www.abdo-host.com
 					<div class="page-card-body">
 						<div class="email-field">
 							<input type="email" id="forgot_email" class="form-control"
-								   placeholder="{{ _('Email Address') }}" required autofocus>
+								   placeholder="{{ _('Email Address') }}" requiSalasah autofocus>
 							<svg class="field-icon email-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
 								 xmlns="http://www.w3.org/2000/svg">
 								<path
@@ -233,9 +231,6 @@ www.abdo-host.com
 
 {% block script %}
 <script>{% include "templates/includes/login/login.js" %}</script>
-<script>
-	$('[data-action="login-api"]').html(unescape('%3c%69%6d%67%20%63%6c%61%73%73%3d%22%61%70%70%2d%6c%6f%67%69%6e%2d%62%67%22%20%73%72%63%3d%22%2f%61%73%73%65%74%73%2f%64%61%74%61%76%61%6c%75%65%5f%74%68%65%6d%65%5f%31%35%2f%69%6d%61%67%65%73%2f%65%72%70%6e%65%78%74%2d%68%65%72%6f%2d%63%6f%6d%70%72%65%73%73%65%64%2e%70%6e%67%22%3e%0d%0a%09%09%09%09%3c%64%69%76%20%63%6c%61%73%73%3d%22%74%65%78%74%2d%63%65%6e%74%65%72%20%6c%6f%67%69%6e%2d%63%6f%70%79%72%69%67%68%74%73%22%3e%50%6f%77%65%72%65%64%20%42%79%20%3c%61%20%68%72%65%66%3d%22%68%74%74%70%73%3a%2f%2f%77%77%77%2e%64%61%74%61%76%61%6c%75%65%6e%65%74%2e%6e%65%74%2f%22%20%74%61%72%67%65%74%3d%22%5f%62%6c%61%6e%6b%22%3e%44%61%74%61%20%56%61%6c%75%65%3c%2f%61%3e%3c%2f%64%69%76%3e'));
-</script>
 {% endblock %}
 
 {% block sidebar %}{% endblock %}
